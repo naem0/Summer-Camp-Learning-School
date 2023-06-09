@@ -17,7 +17,6 @@ import AdminRoute from "./AdminRoute";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
-import AddClass from "./AddClass/AddClass";
 import ManageClass from "../Pages/Dashboard/ManageClass/ManageClass";
 
 export const router = createBrowserRouter([
@@ -58,7 +57,7 @@ export const router = createBrowserRouter([
           element: <UserHome></UserHome>
         },
         {
-          path: 'mycart', 
+          path: 'myclass', 
           element: <MyClass></MyClass>
         },
         {
@@ -72,14 +71,14 @@ export const router = createBrowserRouter([
         },
         {
           path: 'allusers', 
-          element: <AllUsers></AllUsers>
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         },
         {
           path: 'addItem',
-          element: <AdminRoute><AddClass></AddClass></AdminRoute>
+          element: <AdminRoute></AdminRoute>
         },
         {
-          path: 'manageitems',
+          path: 'manageclass',
           element: <AdminRoute><ManageClass></ManageClass></AdminRoute>
         }
       ]

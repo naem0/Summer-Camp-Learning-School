@@ -1,8 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
+
 // import { Helmet } from "react-helmet-async";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "react-query";
 
 
 const AllUsers = () => {
@@ -11,6 +12,7 @@ const AllUsers = () => {
         const res = await axiosSecure.get('/users')
         return res.data;
     })
+    console.log(users)
     const handleMakeAdmin = user => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'

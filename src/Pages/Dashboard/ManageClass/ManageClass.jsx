@@ -1,8 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
+
 // import { Helmet } from "react-helmet-async";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "react-query";
 
 const ManageClass = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -59,11 +60,13 @@ const ManageClass = () => {
           })
           
         if (text) {
-            Swal.fire(text)
             const feedback = text
             fetch(`http://localhost:5000/class/feedback/${user._id}`, {
             method: 'PATCH',
-            body: feedback
+            headers : {
+                'content-type':'application/json'
+            },
+            body: JSON.stringify({feedback}) 
         })
             .then(res => res.json())
             .then(data => {

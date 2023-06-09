@@ -1,12 +1,14 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
-// import useAdmin from "../hooks/useAdmin";
+import useAdmin from "../hooks/useAdmin";
+import useInstructo from "../hooks/useInstructo";
 
 const Dashboard = () => {
 
     // TODO: load data from the server to have dynamic isAdmin based on Data
-    const isAdmin = true;
-    // const [isAdmin] = useAdmin();
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
+    const [isInstructo] = useInstructo();
 
     return (
         <div className="drawer lg:drawer-open">
@@ -23,15 +25,21 @@ const Dashboard = () => {
                     {
                         isAdmin ? <>
                             <li><NavLink to="/dashboard/adminhome"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/addItem"> <FaUtensils></FaUtensils> Add an Item</NavLink></li>
-                            <li><NavLink to="/dashboard/manageitems"><FaWallet></FaWallet> Manage Class</NavLink></li>
+                            <li><NavLink to="/dashboard/manageclass"><FaWallet></FaWallet> Manage Class</NavLink></li>
                             <li><NavLink to="/"><FaBook></FaBook> Manage Bookings(not implemented)</NavLink></li>
                             <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
 
                         </> : <>
-                            <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
-                            <li><NavLink to="/"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                            <li><NavLink to="/"><FaWallet></FaWallet> Payment History</NavLink></li>
+                            {
+                                isInstructo ? <>
+                                    <li><NavLink to="/dashboard/addItem"> <FaUtensils></FaUtensils> Add an Item</NavLink></li>
+                                </> : <>
+                                    <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
+                                    <li><NavLink to="/dashboard/myclass"><FaCalendarAlt></FaCalendarAlt> My Selected Classes</NavLink></li>
+                                    <li><NavLink to="/"><FaWallet></FaWallet> Payment History</NavLink></li>
+                                </>
+                            }
+
 
                         </>
                     }
