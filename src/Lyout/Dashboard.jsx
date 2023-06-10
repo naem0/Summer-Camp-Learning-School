@@ -2,13 +2,16 @@ import { NavLink, Outlet } from "react-router-dom";
 import { FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
 import useInstructo from "../hooks/useInstructo";
+import useAuth from "../hooks/useAuth";
 
 const Dashboard = () => {
-
-    // TODO: load data from the server to have dynamic isAdmin based on Data
-    // const isAdmin = true;
+    const {user, loading} = useAuth();
+    if (loading) {
+        <progress className="progress w-56"></progress>
+    }
     const [isAdmin] = useAdmin();
     const [isInstructo] = useInstructo();
+    console.log(isAdmin, isInstructo)
 
     return (
         <div className="drawer lg:drawer-open">
@@ -20,6 +23,8 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                
+                <div className="divider"></div>
                 <ul className="menu p-4 w-80">
 
                     {
@@ -32,11 +37,11 @@ const Dashboard = () => {
                         </> : <>
                             {
                                 isInstructo ? <>
-                                    <li><NavLink to="/dashboard/addItem"> <FaUtensils></FaUtensils> Add an Item</NavLink></li>
+                                    <li><NavLink to="/dashboard/addclass"> <FaUtensils></FaUtensils> Add an Item</NavLink></li>
                                 </> : <>
                                     <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
                                     <li><NavLink to="/dashboard/myclass"><FaCalendarAlt></FaCalendarAlt> My Selected Classes</NavLink></li>
-                                    <li><NavLink to="/"><FaWallet></FaWallet> Payment History</NavLink></li>
+                                    <li><NavLink to="/dashboard/pamenthistory"><FaWallet></FaWallet> Payment History</NavLink></li>
                                 </>
                             }
 

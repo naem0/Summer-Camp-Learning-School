@@ -1,6 +1,6 @@
 
 // import { Helmet } from "react-helmet-async";
-import { FaTrashAlt, FaUserShield } from "react-icons/fa";
+import { FaTrashAlt, FaUserShield, FaPen, FaCheck, FaCheckCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
@@ -51,7 +51,7 @@ const ManageClass = () => {
     const handleFeeback = async user => {
         const { value: text } = await Swal.fire({
             input: 'textarea',
-            inputLabel: 'Message',
+            inputLabel: 'Feedback Message',
             inputPlaceholder: 'Type your message here...',
             inputAttributes: {
               'aria-label': 'Type your message here'
@@ -86,7 +86,7 @@ const ManageClass = () => {
 
 
     return (
-        <div className="w-full">
+        <div className="w-full mt-12">
             {/* <Helmet>
             <title>Bistro Boss | All users</title>
         </Helmet> */}
@@ -110,13 +110,13 @@ const ManageClass = () => {
                                 <td>{cors.sportsName}</td>
                                 <td>{cors.instructorName}</td>
                                 <td>{cors.status === 'approved' ? 'Approved' :
-                                    <button onClick={() => handleApproved(cors)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button>
+                                    <button onClick={() => handleApproved(cors)} className="btn btn-ghost bg-slate-800 hover:text-black  text-white"><FaCheckCircle></FaCheckCircle></button>
                                 }</td>
                                 <td>{cors.status === 'deny' ? 'Deny' :
-                                    <button onClick={() => handleDeny(cors)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
+                                    <button onClick={() => handleDeny(cors)} className="btn btn-ghost bg-slate-800 hover:text-black  text-white"><FaTrashAlt></FaTrashAlt></button>
                                 }</td>
                                 <td>
-                                    <button onClick={() => handleFeeback(cors)} className="btn btn-ghost">feedbac</button>
+                                    <button onClick={() => handleFeeback(cors)} className="btn bg-slate-800 text-white hover:text-black lowercase font-normal">Feedbac<FaPen></FaPen></button>
                                 </td>
                                 
                             </tr>)

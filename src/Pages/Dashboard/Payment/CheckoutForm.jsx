@@ -104,7 +104,6 @@ const CheckoutForm = ({ allclass, price }) => {
                 })
         }
 
-
     }
 
     return (

@@ -1,6 +1,6 @@
 
 // import { Helmet } from "react-helmet-async";
-import { FaTrashAlt, FaUserShield } from "react-icons/fa";
+import { FaChalkboardTeacher, FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
@@ -56,7 +56,7 @@ const AllUsers = () => {
 
     }
     return (
-        <div className="w-full">
+        <div className="w-full mt-12">
             {/* <Helmet>
             <title>Bistro Boss | All users</title>
         </Helmet> */}
@@ -70,7 +70,8 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Action</th>
+                            <th>Role</th>
+                            <th>Delet</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,10 +81,10 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role === 'instructor' ? 'Instructor' :
-                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button>
+                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-black  text-white"><FaChalkboardTeacher></FaChalkboardTeacher></button>
                                 }</td>
                                 <td>{user.role === 'admin' ? 'admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button>
+                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-black  text-white"> <FaUserShield></FaUserShield></button>
                                 }</td>
                                 <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
                             </tr>)

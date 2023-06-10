@@ -18,6 +18,9 @@ import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import ManageClass from "../Pages/Dashboard/ManageClass/ManageClass";
+import PamentHistory from "../Pages/Dashboard/PamentHistory/PamentHistory";
+import InstructoRoute from "./InstructoRoute";
+import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 
 export const router = createBrowserRouter([
   {
@@ -64,10 +67,19 @@ export const router = createBrowserRouter([
           path:'payment',
           element: <Payment></Payment>
         },
+        // Instructor routes 
+        {
+          path:'addclass',
+          element: <InstructoRoute><AddClass></AddClass></InstructoRoute>
+        },
         // admin routes
         {
           path: 'adminhome',
           element: <AdminHome></AdminHome>
+        },
+        {
+          path: 'pamenthistory',
+          element: <PamentHistory></PamentHistory>
         },
         {
           path: 'allusers', 
