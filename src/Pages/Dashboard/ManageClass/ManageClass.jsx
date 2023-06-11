@@ -90,33 +90,34 @@ const ManageClass = () => {
             {/* <Helmet>
             <title>Bistro Boss | All users</title>
         </Helmet> */}
-            <h3 className="text-3xl font-semibold my-4">Total Users: {allclass.length}</h3>
+            <h3 className="text-3xl font-semibold my-4">Total Class: {allclass.length}</h3>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
+                            <th>Class Name</th>
                             <th>Instructor Name</th>
-                            <th>Role</th>
-                            <th>Action</th>
+                            <th>Approved</th>
+                            <th>Dnay</th>
+                            <th>Feedback</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             allclass.map((cors, index) => <tr key={cors._id}>
                                 <th>{index + 1}</th>
-                                <td>{cors.sportsName}</td>
+                                <td className="font-semibold">{cors.sportsName}</td>
                                 <td>{cors.instructorName}</td>
                                 <td>{cors.status === 'approved' ? 'Approved' :
-                                    <button onClick={() => handleApproved(cors)} className="btn btn-ghost bg-slate-800 hover:text-black  text-white"><FaCheckCircle></FaCheckCircle></button>
+                                    <button onClick={() => handleApproved(cors)} className="btn btn-sm bg-slate-800 hover:text-black  text-white"><FaCheckCircle></FaCheckCircle></button>
                                 }</td>
                                 <td>{cors.status === 'deny' ? 'Deny' :
-                                    <button onClick={() => handleDeny(cors)} className="btn btn-ghost bg-slate-800 hover:text-black  text-white"><FaTrashAlt></FaTrashAlt></button>
+                                    <button onClick={() => handleDeny(cors)} className="btn btn-sm bg-slate-800 hover:text-black  text-white"><FaTrashAlt></FaTrashAlt></button>
                                 }</td>
                                 <td>
-                                    <button onClick={() => handleFeeback(cors)} className="btn bg-slate-800 text-white hover:text-black lowercase font-normal">Feedbac<FaPen></FaPen></button>
+                                    <button onClick={() => handleFeeback(cors)} className="btn btn-sm bg-slate-800 text-white hover:text-black lowercase font-normal">Feedbac<FaPen></FaPen></button>
                                 </td>
                                 
                             </tr>)

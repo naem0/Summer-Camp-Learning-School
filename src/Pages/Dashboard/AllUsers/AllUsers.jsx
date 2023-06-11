@@ -52,8 +52,36 @@ const AllUsers = () => {
             })
     }
 
-    const handleDelete = user => {
+    const handleDelete = _id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/user/${_id}`,{
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
 
+                    })
+
+            }
+        })
     }
     return (
         <div className="w-full mt-12">
@@ -78,15 +106,15 @@ const AllUsers = () => {
                         {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
-                                <td>{user.name}</td>
+                                <td className="font-semibold">{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role === 'instructor' ? 'Instructor' :
-                                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-black  text-white"><FaChalkboardTeacher></FaChalkboardTeacher></button>
+                                    <button onClick={() => handleMakeInstructor(user)} disabled={user.role} className="btn btn-sm bg-black  text-white"><FaChalkboardTeacher></FaChalkboardTeacher></button>
                                 }</td>
                                 <td>{user.role === 'admin' ? 'admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-black  text-white"> <FaUserShield></FaUserShield></button>
+                                    <button onClick={() => handleMakeAdmin(user)} disabled={user.role} className="btn btn-sm bg-black  text-white"> <FaUserShield></FaUserShield></button>
                                 }</td>
-                                <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
+                                <td><button onClick={() => handleDelete(user._id)} className="btn btn-sm bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
                             </tr>)
                         }
 

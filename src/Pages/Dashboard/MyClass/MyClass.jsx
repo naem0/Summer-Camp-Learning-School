@@ -82,14 +82,17 @@ const MyClass = () => {
                                 <td>
                                     <button onClick={() => handleDelete(item)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
                                 </td>
+                                <td>
+                                    <Link to = {`/dashboard/payment/${item._id}`}>
+                                        <button className="btn bg-black text-white hover:text-black  btn-sm ">PAY</button>
+                                    </Link>
+                                </td>
                             </tr>)
                         }
                     </tbody>
                 </table>
             </div>
-            <Link to="/dashboard/payment">
-                <button className="btn btn-block bg-black text-white hover:text-black  btn-sm ">PAY</button>
-            </Link>
+
         </div>
     );
 };

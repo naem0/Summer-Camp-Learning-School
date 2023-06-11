@@ -21,6 +21,8 @@ import ManageClass from "../Pages/Dashboard/ManageClass/ManageClass";
 import PamentHistory from "../Pages/Dashboard/PamentHistory/PamentHistory";
 import InstructoRoute from "./InstructoRoute";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
+import InstructorMyClass from "../Pages/Dashboard/InstructorMyClass/InstructorMyClass";
+import UpdatClass from "../Pages/Dashboard/UpdatClass/UpdatClass";
 
 export const router = createBrowserRouter([
   {
@@ -64,13 +66,23 @@ export const router = createBrowserRouter([
           element: <MyClass></MyClass>
         },
         {
-          path:'payment',
-          element: <Payment></Payment>
+          path:'payment/:id',
+          element: <Payment></Payment>,
+          loader: ({params}) => fetch(`http://localhost:5000/class/${params.id}`)
         },
         // Instructor routes 
         {
           path:'addclass',
           element: <InstructoRoute><AddClass></AddClass></InstructoRoute>
+        },
+        {
+          path:'updatclass/:id',
+          element: <InstructoRoute><UpdatClass></UpdatClass></InstructoRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/class/${params.id}`)
+        },
+        {
+          path:'instructormyclass',
+          element: <InstructoRoute><InstructorMyClass></InstructorMyClass></InstructoRoute>
         },
         // admin routes
         {

@@ -7,7 +7,10 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 
-const CheckoutForm = ({ allclass, price }) => {
+// eslint-disable-next-line react/prop-types
+const CheckoutForm = ({data}) => {
+    // eslint-disable-next-line react/prop-types
+    const{_id, sportsName, price, instructorEmail, instructorName, totalSeats, menuItemId }=data;
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -16,7 +19,6 @@ const CheckoutForm = ({ allclass, price }) => {
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
-
     useEffect(() => {
         if (price > 0) {
             axiosSecure.post('/create-payment-intent', { price })
@@ -83,12 +85,15 @@ const CheckoutForm = ({ allclass, price }) => {
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
-                quantity: allclass.length,
-                studentclassItems: allclass.map(item => item._id),
-                classItems: allclass.map(item => item.menuItemId),
+                instructorEmail,
+                instructorName,
+                studentclassItems:_id,
+                classItems: menuItemId,
                 status: 'service pending',
-                itemNames: allclass.map(item => item.name)
+                sportsName,
+                totalSeats
             }
+            console.log(payment)
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res.data);
