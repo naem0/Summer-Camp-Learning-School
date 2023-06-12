@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { FaWallet, FaCalendarAlt, FaHome, FaUtensils,  FaUsers } from 'react-icons/fa';
+import { FaWallet, FaCalendarAlt, FaHome, FaUtensils,  FaUsers, FaBookOpen, FaChalkboard, FaChalkboardTeacher, FaBook } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
 import useInstructo from "../hooks/useInstructo";
 import useAuth from "../hooks/useAuth";
@@ -52,6 +52,7 @@ const Dashboard = () => {
                                 </> : <>
                                     <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
                                     <li><NavLink to="/dashboard/myclass"><FaCalendarAlt></FaCalendarAlt> My Selected Classes</NavLink></li>
+                                    <li><NavLink to="/dashboard/enrolclass"><FaBook></FaBook> My Enrol Classes</NavLink></li>
                                     <li><NavLink to="/dashboard/pamenthistory"><FaWallet></FaWallet> Payment History</NavLink></li>
                                 </>
                             }
@@ -62,8 +63,8 @@ const Dashboard = () => {
 
                     <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
-                    <li><NavLink to="/menu"> Our Menu</NavLink></li>
-                    <li><NavLink to="/order/salad">Order Food</NavLink></li>
+                    <li><NavLink to="/class"><FaBookOpen></FaBookOpen> Class</NavLink></li>
+                    <li><NavLink to="/instructor"><FaChalkboardTeacher></FaChalkboardTeacher> Instructor</NavLink></li>
                 </ul>
             </div>
         </div>

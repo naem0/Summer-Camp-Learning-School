@@ -95,19 +95,22 @@ const AllUsers = () => {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th>Photo</th>
+                            <th>Name | Email</th>
                             <th>Role</th>
                             <th>Role</th>
-                            <th>Delet</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
-                                <td className="font-semibold">{user.name}</td>
-                                <td>{user.email}</td>
+                                <td className=""><img className="w-10 h-10 rounded-xl" src={user.photo} alt="" /></td>
+                                <td>
+                                    <p className="font-semibold">{user.name}</p>
+                                    <p className="text-xs">{user.email}</p>
+                                </td>
                                 <td>{user.role === 'instructor' ? 'Instructor' :
                                     <button onClick={() => handleMakeInstructor(user)} disabled={user.role} className="btn btn-sm bg-black  text-white"><FaChalkboardTeacher></FaChalkboardTeacher></button>
                                 }</td>
@@ -117,8 +120,6 @@ const AllUsers = () => {
                                 <td><button onClick={() => handleDelete(user._id)} className="btn btn-sm bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
                             </tr>)
                         }
-
-
                     </tbody>
                 </table>
             </div>

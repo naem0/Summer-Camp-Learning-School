@@ -24,9 +24,9 @@ const PamentHistory = () => {
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Action</th>
+                            <th>Transaction Id</th>
+                            <th>Price</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,9 +34,9 @@ const PamentHistory = () => {
                             payments.map((payment, index) => <tr key={payment._id}>
                                 <th>{index + 1}</th>
                                 <td>{payment.name}</td>
-                                <td>{payment.email}</td>
-                                
-                                <td>hello</td>
+                                <td>{payment.transactionId}</td>
+                                <td>{payment.price}</td>
+                                <td>{payment.date}</td>
                             </tr>)
                         }
                     </tbody>

@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 // eslint-disable-next-line react/prop-types
 const CheckoutForm = ({data}) => {
     // eslint-disable-next-line react/prop-types
-    const{_id, sportsName, price, instructorEmail, instructorName, totalSeats, menuItemId }=data;
+    const{_id, name, price, instructorEmail, instructorName, totalSeats, menuItemId }=data;
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -82,6 +82,7 @@ const CheckoutForm = ({data}) => {
             // save payment information to the server
             const payment = {
                 email: user?.email,
+                name,
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
@@ -90,7 +91,6 @@ const CheckoutForm = ({data}) => {
                 studentclassItems:_id,
                 classItems: menuItemId,
                 status: 'service pending',
-                sportsName,
                 totalSeats
             }
             console.log(payment)

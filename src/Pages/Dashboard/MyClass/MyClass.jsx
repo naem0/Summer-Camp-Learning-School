@@ -45,7 +45,7 @@ const MyClass = () => {
                 <title>Bistro Boss | My class</title>
             </Helmet> */}
             <div className="font-semibold h-[60px] flex justify-evenly items-center">
-                <h3 className="text-3xl">Total Items: {allclass.length}</h3>
+                <h3 className="text-3xl">Total Class: {allclass.length}</h3>
                 <h3 className="text-3xl">Total Price: ${total}</h3>
             </div>
             <div className="overflow-x-auto w-full">
@@ -54,10 +54,11 @@ const MyClass = () => {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Food</th>
+                            <th>photo</th>
                             <th>Item Name</th>
                             <th>Price</th>
-                            <th>Action</th>
+                            <th>Delet</th>
+                            <th>pay</th>
                         </tr>
                     </thead>
                     <tbody>

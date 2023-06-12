@@ -23,6 +23,7 @@ import InstructoRoute from "./InstructoRoute";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import InstructorMyClass from "../Pages/Dashboard/InstructorMyClass/InstructorMyClass";
 import UpdatClass from "../Pages/Dashboard/UpdatClass/UpdatClass";
+import StudentEnrolClass from "../Pages/Dashboard/StudentEnrolClass/StudentEnrolClass";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
         {
           path: 'myclass', 
           element: <MyClass></MyClass>
+        },
+        {
+          path: 'enrolclass', 
+          element: <StudentEnrolClass></StudentEnrolClass>
         },
         {
           path:'payment/:id',
