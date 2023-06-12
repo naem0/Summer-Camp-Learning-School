@@ -46,6 +46,7 @@ const Dashboard = () => {
                         </> : <>
                             {
                                 isInstructo ? <>
+                                <li><NavLink to="/dashboard/instactorhome"><FaHome></FaHome> Instactor Home</NavLink></li>
                                     <li><NavLink to="/dashboard/addclass"> <FaUtensils></FaUtensils> Add an Item</NavLink></li>
                                     <li><NavLink to="/dashboard/instructormyclass"> <FaUtensils></FaUtensils> My Class</NavLink></li>
                                 </> : <>

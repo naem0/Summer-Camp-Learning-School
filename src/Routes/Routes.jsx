@@ -25,6 +25,7 @@ import InstructorMyClass from "../Pages/Dashboard/InstructorMyClass/InstructorMy
 import UpdatClass from "../Pages/Dashboard/UpdatClass/UpdatClass";
 import StudentEnrolClass from "../Pages/Dashboard/StudentEnrolClass/StudentEnrolClass";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
 
 export const router = createBrowserRouter([
   {
@@ -47,7 +48,7 @@ export const router = createBrowserRouter([
         loader:()=>fetch('http://localhost:5000/instructor')
       },
       {
-        path: '/login',
+        path: 'login',
         element: <Login></Login>
       },
       {
@@ -78,6 +79,10 @@ export const router = createBrowserRouter([
           loader: ({params}) => fetch(`http://localhost:5000/class/${params.id}`)
         },
         // Instructor routes 
+        {
+          path:'instactorhome',
+          element: <InstructoRoute><InstructorHome></InstructorHome></InstructoRoute>
+        },
         {
           path:'addclass',
           element: <InstructoRoute><AddClass></AddClass></InstructoRoute>

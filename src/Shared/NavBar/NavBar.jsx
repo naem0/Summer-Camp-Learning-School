@@ -4,16 +4,18 @@ import { AuthContext } from "../../providers/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
 import useClass from "../../hooks/useClass";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructo from "../../hooks/useInstructo";
 // import { FaMoon, FaSun } from "react-icons/fa";
 // import useAdmin from "../../hooks/useAdmin";
 
 const NavBar = () => {
-    const { user} = useContext(AuthContext);
-    // const [isAdmin] = useAdmin();
-    const isAdmin = true;
+    const { user } = useContext(AuthContext);
+    const [isAdmin] = useAdmin();
+    const [isInstructo] = useInstructo();
     const [allclass,] = useClass();
     const [axiosSecure] = useAxiosSecure();
-    const { data: alclass = [],} = useQuery(['allclass'], async () => {
+    const { data: alclass = [], } = useQuery(['allclass'], async () => {
         const res = await axiosSecure.get('/allclass')
         return res.data;
     })
@@ -23,29 +25,30 @@ const NavBar = () => {
         <li><Link to="/class">Class</Link></li>
         <li><Link to="/instructor">Instructor</Link></li>
         <li>
-        {
-                        user ? <>
-                            {
-                                user &&
-                                    isAdmin ?
-
-                                    <Link to="/dashboard/adminhome" className="flex">
-                                        Dashboard
-                                        <div className="badge badge-secondary -ms-2">+{alclass?.length || 0}</div>
-                                    </Link>
-                                    :
-
-                                    <Link to="/dashboard/userhome" className="flex">
-                                        Dashboard
-                                        <div className="badge badge-secondary -ms-2">+{allclass?.length || 0}</div>
-                                    </Link>
-
-                            }
-                            
+            {
+                isAdmin ? <>
+                    <Link to="/dashboard/adminhome" className="flex">
+                        Dashboard
+                        <div className="badge badge-secondary -ms-2">+{alclass?.length || 0}</div>
+                    </Link>
+                </> : <>
+                    {
+                        isInstructo ? <>
+                            <Link to="/dashboard/instactorhome" className="flex">
+                                Dashboard
+                                <div className="badge badge-secondary -ms-2">+{allclass?.length || 0}</div>
+                            </Link>
                         </> : <>
-                            
+                            <Link to="/dashboard/userhome" className="flex">
+                                Dashboard
+                                <div className="badge badge-secondary -ms-2">+{allclass?.length || 0}</div>
+                            </Link>
                         </>
                     }
+
+
+                </>
+            }
         </li>
 
     </>
@@ -112,7 +115,7 @@ const NavBar = () => {
                                     isAdmin ?
 
                                     <Link to="/dashboard/adminhome" className="flex">
-                                        
+
                                         <img className="rounded-full w-12 " src={user.photoURL} alt="" />
                                         <div className="badge badge-secondary -ms-2">+{alclass?.length || 0}</div>
                                     </Link>
@@ -124,7 +127,7 @@ const NavBar = () => {
                                     </Link>
 
                             }
-                            
+
                         </> : <>
                             <Link to="/login">Login</Link>
                         </>

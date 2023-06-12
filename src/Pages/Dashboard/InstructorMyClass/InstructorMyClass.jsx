@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
@@ -12,8 +13,13 @@ const InstructorMyClass = () => {
         const res = await axiosSecure.get(`/instructoclass?email=${user?.email}`)
         return res.data;
     })
-    console.log(myClass)
-    return (
+    const sowFeedback = feedback=>{
+        Swal.fire({
+            title: 'Feedback',
+            text: `${feedback? feedback: "no feedback"}`,
+          })
+    }
+        return (
         <div className="w-full p-10">
             <div className="w-full">
                 {/* <Helmet>
@@ -30,6 +36,7 @@ const InstructorMyClass = () => {
                                 <th>Price</th>
                                 <th>Booked Seats</th>
                                 <th>Statas</th>
+                                <th>Feedback</th>
                                 <th>Updat</th>
                             </tr>
                         </thead>
@@ -41,6 +48,7 @@ const InstructorMyClass = () => {
                                     <td>{myAClass.price}</td>
                                     <td>{myAClass.bookSeats ? myAClass.bookSeats : 0}</td>
                                     <td>{myAClass.status ? myAClass.status:'pending'}</td>
+                                    <td><button className="btn btn-xs text-xs" onClick={()=>sowFeedback(myAClass?.feedback)}>Feedback</button></td>
                                     <td><Link className="btn btn-xs" to={`/dashboard/updatclass/${myAClass._id}`}>Updat</Link></td>
                                 </tr>)
                             }
