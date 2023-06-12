@@ -65,7 +65,7 @@ const ClassCard = ({ data }) => {
 
   return (
     <div key={_id} className={`card bg-base-100 shadow-xl
-     ${bg ? "bg-red-500 bg-opacity-5" : ""} `}>
+     ${bg ? "bg-red-500 bg-opacity-10" : ""} `}>
       <figure><img src={image} alt="Shoes" /></figure>
       <div className="card-body">
         <h2 className="card-title">{sportsName}</h2>

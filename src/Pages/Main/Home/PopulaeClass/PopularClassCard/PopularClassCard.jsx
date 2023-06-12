@@ -60,12 +60,18 @@ const PopularClassCard = ({ topclass }) => {
         }
     }, [totalSeats, bookSeats, isAdmin, isInstructo]);
     return (
-        <div className="card card-side bg-base-100 shadow-xl">
-            <figure><img src={image} alt="Movie" /></figure>
-            <div className="card-body">
+        <div className="card flex-col md:flex-row card-side bg-base-100 shadow-xl">
+            <figure className='md:w-1/2 h-full'><img className='h-full' src={image} alt="Movie" /></figure>
+            <div className="card-body my-0">
                 <h2 className="card-title">{sportsName}</h2>
-                <p>{instructorName}</p>
-                <div className="card-actions justify-end">
+                <p className='text-sm font-semibold'>Instructor: {instructorName}</p>
+                <p className='text-xs '>Email: {instructorEmail}</p>
+                <div className="flex justify-between">
+                    <p className='text-xs '>Total Seats: {totalSeats}</p>
+                    <p className='text-xs '>Available Seats: {totalSeats-bookSeats}</p>
+                </div>
+                <div className=" flex justify-between">
+                    <h3 className='font-bold text-lg my-auto'> ${price}</h3>
                     <button onClick={handleAddStudentMyclass}
                         disabled={disable}
                         className="btn btn-sm btn-primary">Book now</button>

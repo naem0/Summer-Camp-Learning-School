@@ -11,7 +11,7 @@ const PopularClass = () => {
     })
     console.log(popularclass)
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-16 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 my-16 ">
             {
                 popularclass.map(topclass=><PopularClassCard topclass={topclass} key={topclass._id}></PopularClassCard>)
             }
