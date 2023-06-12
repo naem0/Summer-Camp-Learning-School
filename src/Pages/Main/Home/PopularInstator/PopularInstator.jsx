@@ -10,7 +10,7 @@ const PopularInstator = () => {
     })
     console.log(popularinstactors)
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4'>
             {
                 popularinstactors.map(popularinstactor =><PopularInstatorCard key= {popularinstactor._id} popularinstactor ={popularinstactor}></PopularInstatorCard>)
             }

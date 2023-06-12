@@ -12,7 +12,7 @@ const ManageClass = () => {
         return res.data;
     })
     const handleApproved = user => {
-        fetch(`http://localhost:5000/class/approved/${user._id}`, {
+        fetch(`https://summer-camp-learning-school-surver.vercel.app/class/approved/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -31,7 +31,7 @@ const ManageClass = () => {
             })
     }
     const handleDeny = user => {
-        fetch(`http://localhost:5000/class/deny/${user._id}`, {
+        fetch(`https://summer-camp-learning-school-surver.vercel.app/class/deny/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -61,7 +61,7 @@ const ManageClass = () => {
 
         if (text) {
             const feedback = text
-            fetch(`http://localhost:5000/class/feedback/${user._id}`, {
+            fetch(`https://summer-camp-learning-school-surver.vercel.app/class/feedback/${user._id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json'

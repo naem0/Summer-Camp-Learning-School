@@ -40,7 +40,7 @@ const ClassCard = ({ data }) => {
         email: user.email
       };
 
-      fetch('http://localhost:5000/studentallclass', {
+      fetch('https://summer-camp-learning-school-surver.vercel.app/studentallclass', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -68,13 +68,19 @@ const ClassCard = ({ data }) => {
      ${bg ? "bg-red-500 bg-opacity-10" : ""} `}>
       <figure><img src={image} alt="Shoes" /></figure>
       <div className="card-body">
-        <h2 className="card-title">{sportsName}</h2>
-        <p>{price}</p>
-        <div className="card-actions justify-end">
-          <button onClick={handleAddStudentMyclass} 
-          disabled={disable} 
-          className="btn btn-primary">Buy Now</button>
-        </div>
+      <h2 className="card-title">{sportsName}</h2>
+                <p className='text-sm font-semibold'>Instructor: {instructorName}</p>
+                <p className='text-xs'>{instructorEmail}</p>
+                <div className="flex justify-between">
+                    <p className='text-xs '>Total Seats: {totalSeats}</p>
+                    <p className='text-sm '>Available Seats: {totalSeats-bookSeats}</p>
+                </div>
+                <div className=" flex justify-between">
+                    <h3 className='font-bold text-lg my-auto'> ${price}</h3>
+                    <button onClick={handleAddStudentMyclass}
+                        disabled={disable}
+                        className="btn btn-sm btn-primary">Book now</button>
+                </div>
       </div>
     </div>
   );

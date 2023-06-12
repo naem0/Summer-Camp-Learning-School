@@ -43,25 +43,140 @@ const Banner = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img className='h-banae ' src={img1} alt="" />
+                    <div className="" style={{
+                        backgroundImage: `url(${img1})`,
+                        // backgroundImage: `url(${externalImage})`,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        height: 'full'
+                    }}>
+                        <div className=" bg-black bg-opacity-25 pb-12 pt-32">
+                            <div className="md:w lg:w-1/2 text-center mx-auto mb-10 text-white">
+                                <h1 className='text-4xl font-bold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus quisquam dicta quibusdam incidunt accusamus, odit adipisci illum mollitia omnis voluptatum distinctio, dolores vero doloremque at? Quae est eum reiciendis quam ullam? Ratione aut doloribus provident tempora, et cupiditate praesentium ad ipsum libero, vitae quam at, consectetur mollitia nam corporis.</p>
+                            </div>
+                        </div>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='h-banar' src={img6} alt="" />
+                    <div className="" style={{
+                        backgroundImage: `url(${img2})`,
+                        // backgroundImage: `url(${externalImage})`,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        height: 'full'
+                    }}>
+                        <div className=" bg-black bg-opacity-25 pb-12 pt-32">
+                            <div className="md:w lg:w-1/2 text-center mx-auto mb-10 text-white">
+                                <h1 className='text-4xl font-bold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus quisquam dicta quibusdam incidunt accusamus, odit adipisci illum mollitia omnis voluptatum distinctio, dolores vero doloremque at? Quae est eum reiciendis quam ullam? Ratione aut doloribus provident tempora, et cupiditate praesentium ad ipsum libero, vitae quam at, consectetur mollitia nam corporis.</p>
+                            </div>
+                        </div>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='h-banar' src={img8} alt="" />
+                    <div className="" style={{
+                        backgroundImage: `url(${img3})`,
+                        // backgroundImage: `url(${externalImage})`,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        height: 'full'
+                    }}>
+                        <div className=" bg-black bg-opacity-25 pb-12 pt-32">
+                            <div className="md:w lg:w-1/2 text-center mx-auto mb-10 text-white">
+                                <h1 className='text-4xl font-bold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus quisquam dicta quibusdam incidunt accusamus, odit adipisci illum mollitia omnis voluptatum distinctio, dolores vero doloremque at? Quae est eum reiciendis quam ullam? Ratione aut doloribus provident tempora, et cupiditate praesentium ad ipsum libero, vitae quam at, consectetur mollitia nam corporis.</p>
+                            </div>
+                        </div>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='h-banar' src={img3} alt="" />
+                    <div className="" style={{
+                        backgroundImage: `url(${img4})`,
+                        // backgroundImage: `url(${externalImage})`,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        height: 'full'
+                    }}>
+                        <div className=" bg-black bg-opacity-25 pb-12 pt-32">
+                            <div className="md:w lg:w-1/2 text-center mx-auto mb-10 text-white">
+                                <h1 className='text-4xl font-bold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus quisquam dicta quibusdam incidunt accusamus, odit adipisci illum mollitia omnis voluptatum distinctio, dolores vero doloremque at? Quae est eum reiciendis quam ullam? Ratione aut doloribus provident tempora, et cupiditate praesentium ad ipsum libero, vitae quam at, consectetur mollitia nam corporis.</p>
+                            </div>
+                        </div>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='h-banar' src={img4} alt="" />
+                    <div className="" style={{
+                        backgroundImage: `url(${img5})`,
+                        // backgroundImage: `url(${externalImage})`,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        height: 'full'
+                    }}>
+                        <div className=" bg-black bg-opacity-25 pb-12 pt-32">
+                            <div className="md:w lg:w-1/2 text-center mx-auto mb-10 text-white">
+                                <h1 className='text-4xl font-bold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus quisquam dicta quibusdam incidunt accusamus, odit adipisci illum mollitia omnis voluptatum distinctio, dolores vero doloremque at? Quae est eum reiciendis quam ullam? Ratione aut doloribus provident tempora, et cupiditate praesentium ad ipsum libero, vitae quam at, consectetur mollitia nam corporis.</p>
+                            </div>
+                        </div>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='h-banar' src={img5} alt="" />
+                    <div className="" style={{
+                        backgroundImage: `url(${img6})`,
+                        // backgroundImage: `url(${externalImage})`,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        height: 'full'
+                    }}>
+                        <div className=" bg-black bg-opacity-25 pb-12 pt-32">
+                            <div className="md:w lg:w-1/2 text-center mx-auto mb-10 text-white">
+                                <h1 className='text-4xl font-bold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus quisquam dicta quibusdam incidunt accusamus, odit adipisci illum mollitia omnis voluptatum distinctio, dolores vero doloremque at? Quae est eum reiciendis quam ullam? Ratione aut doloribus provident tempora, et cupiditate praesentium ad ipsum libero, vitae quam at, consectetur mollitia nam corporis.</p>
+                            </div>
+                        </div>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='h-banar' src={img9} alt="" />
+                    <div className="" style={{
+                        backgroundImage: `url(${img8})`,
+                        // backgroundImage: `url(${externalImage})`,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        height: 'full'
+                    }}>
+                        <div className=" bg-black bg-opacity-25 pb-12 pt-32">
+                            <div className="md:w lg:w-1/2 text-center mx-auto mb-10 text-white">
+                                <h1 className='text-4xl font-bold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus quisquam dicta quibusdam incidunt accusamus, odit adipisci illum mollitia omnis voluptatum distinctio, dolores vero doloremque at? Quae est eum reiciendis quam ullam? Ratione aut doloribus provident tempora, et cupiditate praesentium ad ipsum libero, vitae quam at, consectetur mollitia nam corporis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="" style={{
+                        backgroundImage: `url(${img9})`,
+                        // backgroundImage: `url(${externalImage})`,
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        height: 'full'
+                    }}>
+                        <div className=" bg-black bg-opacity-25 pb-12 pt-32">
+                            <div className="md:w lg:w-1/2 text-center mx-auto mb-10 text-white">
+                                <h1 className='text-4xl font-bold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus quisquam dicta quibusdam incidunt accusamus, odit adipisci illum mollitia omnis voluptatum distinctio, dolores vero doloremque at? Quae est eum reiciendis quam ullam? Ratione aut doloribus provident tempora, et cupiditate praesentium ad ipsum libero, vitae quam at, consectetur mollitia nam corporis.</p>
+                            </div>
+                        </div>
+                    </div>
                 </SwiperSlide>
                 <div className="autoplay-progress" slot="container-end">
                     <svg viewBox="0 0 48 48" ref={progressCircle}>

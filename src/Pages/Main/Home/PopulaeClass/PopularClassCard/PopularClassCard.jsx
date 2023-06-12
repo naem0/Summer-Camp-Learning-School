@@ -26,7 +26,7 @@ const PopularClassCard = ({ topclass }) => {
                 email: user.email
             };
 
-            fetch('http://localhost:5000/studentallclass', {
+            fetch('https://summer-camp-learning-school-surver.vercel.app/studentallclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
