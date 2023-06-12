@@ -94,11 +94,7 @@ const NavBar = () => {
                     </div>
                     <a className="btn btn-ghost normal-case text-xl">Skills Hub</a>
                 </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="ms-auto menu menu-horizontal px-1">
-                        {navOptions}
-                    </ul>
-                </div>
+                
                 <div className="">
                     {/* Toggle button here */}
                     <label className="swap mt-0 swap-rotate w-8 h-8">
