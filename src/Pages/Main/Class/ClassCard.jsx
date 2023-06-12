@@ -10,6 +10,7 @@ const ClassCard = ({ data }) => {
   const [, refetch] = useClass();
   const [disable, setDisabole] = useState(false);
   const [bg, setBg] = useState(false);
+  // eslint-disable-next-line react/prop-types
   const { _id, image, price, sportsName, instructorName, instructorEmail, totalSeats, bookSeats } = data;
   const [isAdmin] = useAdmin();
   const [isInstructo] = useInstructo();
@@ -25,6 +26,8 @@ const ClassCard = ({ data }) => {
       setDisabole(true);
     }
   }, [totalSeats, bookSeats]);
+
+
 
   const handleAddStudentMyclass = () => {
     if (user && user.email) {
