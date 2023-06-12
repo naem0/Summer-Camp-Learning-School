@@ -1,13 +1,10 @@
 import { useRef } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import './banner.css'
+import './banner.css';
 
 import img1 from '../../../../assets/img/alliance-football-club-hXJ4O3S73gE-unsplash.jpg'
 import img2 from '../../../../assets/img/ben-hershey-abbPnv1xq1U-unsplash.jpg'
@@ -17,6 +14,7 @@ import img5 from '../../../../assets/img/kenny-eliason-5X2JXYX6hP4-unsplash.jpg'
 import img6 from '../../../../assets/img/kenny-eliason-8Mz5ZF5H13s-unsplash.jpg'
 import img8 from '../../../../assets/img/kenny-eliason-J4RSyiz_M3I-unsplash.jpg'
 import img9 from '../../../../assets/img/kyle-pham-njuYs5kFJ3s-unsplash (1).jpg'
+import { motion } from "framer-motion"
 
 const Banner = () => {
     const progressCircle = useRef(null);
@@ -52,10 +50,10 @@ const Banner = () => {
                         height: 'full'
                     }}>
                         <div className=" bg-black bg-opacity-25 pb-12 pt-32">
-                            <div className="md:w lg:w-1/2 text-center mx-auto mb-10 text-white">
+                            <motion.div animate={{color: '#fff'}} className="md:w lg:w-1/2 text-center mx-auto mb-10 ">
                                 <h1 className='text-4xl font-bold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus quisquam dicta quibusdam incidunt accusamus, odit adipisci illum mollitia omnis voluptatum distinctio, dolores vero doloremque at? Quae est eum reiciendis quam ullam? Ratione aut doloribus provident tempora, et cupiditate praesentium ad ipsum libero, vitae quam at, consectetur mollitia nam corporis.</p>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </SwiperSlide>

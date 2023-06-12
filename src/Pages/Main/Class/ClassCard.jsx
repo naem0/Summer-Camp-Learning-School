@@ -14,7 +14,7 @@ const ClassCard = ({ data }) => {
   const [isAdmin] = useAdmin();
   const [isInstructo] = useInstructo();
   useEffect(() => {
-    if (totalSeats <= bookSeats && isAdmin && isInstructo) {
+    if (totalSeats <= bookSeats) {
       setDisabole(true);
       setBg(true);
     }

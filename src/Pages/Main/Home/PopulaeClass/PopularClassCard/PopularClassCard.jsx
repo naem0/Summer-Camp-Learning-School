@@ -4,6 +4,11 @@ import { AuthContext } from '../../../../../providers/AuthProvider';
 import useClass from '../../../../../hooks/useClass';
 import useAdmin from '../../../../../hooks/useAdmin';
 import useInstructo from '../../../../../hooks/useInstructo';
+import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion"
+
+
+
 
 const PopularClassCard = ({ topclass }) => {
     const { user } = useContext(AuthContext);
@@ -11,8 +16,12 @@ const PopularClassCard = ({ topclass }) => {
     const [, refetch] = useClass();
     const [isAdmin] = useAdmin();
     const [isInstructo] = useInstructo();
+    const navigate = useNavigate();
     const { _id, image, price, sportsName, instructorName, instructorEmail, totalSeats, bookSeats } = topclass;
     const handleAddStudentMyclass = () => {
+        if (!user) {
+            return navigate('/login')
+        }
         if (user && user.email) {
             const cartItem = {
                 instructorEmail,
@@ -49,7 +58,7 @@ const PopularClassCard = ({ topclass }) => {
         }
     };
     useEffect(() => {
-        if (totalSeats <= bookSeats && isAdmin && isInstructo) {
+        if (totalSeats <= bookSeats) {
             setDisabole(true);
         }
         if (isAdmin) {
@@ -60,7 +69,7 @@ const PopularClassCard = ({ topclass }) => {
         }
     }, [totalSeats, bookSeats, isAdmin, isInstructo]);
     return (
-        <div className="card flex-col md:flex-row card-side bg-base-100 shadow-xl">
+        <motion.div animate={{ backgroundColor: '#dddddd' }} className="card flex-col md:flex-row card-side bg-base-100 shadow-xl">
             <figure className='md:w-1/2 h-full'><img className='h-full' src={image} alt="Movie" /></figure>
             <div className="card-body my-0">
                 <h2 className="card-title">{sportsName}</h2>
@@ -77,7 +86,7 @@ const PopularClassCard = ({ topclass }) => {
                         className="btn btn-sm btn-primary">Book now</button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

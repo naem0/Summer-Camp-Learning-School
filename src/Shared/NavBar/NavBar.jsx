@@ -26,29 +26,35 @@ const NavBar = () => {
         <li><Link to="/instructor">Instructor</Link></li>
         <li>
             {
-                isAdmin ? <>
-                    <Link to="/dashboard/adminhome" className="flex">
-                        Dashboard
-                        <div className="badge badge-secondary -ms-2">+{alclass?.length || 0}</div>
-                    </Link>
-                </> : <>
+                user && <>
                     {
-                        isInstructo ? <>
-                            <Link to="/dashboard/instactorhome" className="flex">
+                        isAdmin ? <>
+                            <Link to="/dashboard/adminhome" className="flex">
                                 Dashboard
-                                <div className="badge badge-secondary -ms-2">+{allclass?.length || 0}</div>
+                                <div className="badge badge-secondary -ms-2">+{alclass?.length || 0}</div>
                             </Link>
                         </> : <>
-                            <Link to="/dashboard/userhome" className="flex">
-                                Dashboard
-                                <div className="badge badge-secondary -ms-2">+{allclass?.length || 0}</div>
-                            </Link>
+                            {
+                                isInstructo ? <>
+                                    <Link to="/dashboard/instactorhome" className="flex">
+                                        Dashboard
+                                        <div className="badge badge-secondary -ms-2">+{allclass?.length || 0}</div>
+                                    </Link>
+                                </> : <>
+                                    <Link to="/dashboard/userhome" className="flex">
+                                        Dashboard
+                                        <div className="badge badge-secondary -ms-2">+{allclass?.length || 0}</div>
+                                    </Link>
+                                </>
+                            }
+
+
                         </>
                     }
-
-
                 </>
+
             }
+
         </li>
 
     </>
@@ -86,7 +92,7 @@ const NavBar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Bistro Boss</a>
+                    <a className="btn btn-ghost normal-case text-xl">Skills Hub</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="ms-auto menu menu-horizontal px-1">

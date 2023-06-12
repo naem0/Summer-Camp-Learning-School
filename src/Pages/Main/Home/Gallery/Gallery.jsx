@@ -1,13 +1,14 @@
+import { motion } from "framer-motion"
 
 
 const Gallery = () => {
     return (
         <div className="mb-24">
 
-            <h1 className="text-center mb-12 text-4xl text-slate-600 font-bold">Photo Gallery</h1>
+            <motion.h1 animate={{ fontFamily: 'mono' }} className="text-center mb-12 text-4xl text-slate-600 font-bold">Photo Gallery</motion.h1>
             <div className=" flex gap-12 justify-center mb-12 text-center md:w-2/3 lg:w-1/2 mx-auto text-slate-800 font-semibold">
                 <p>
-                     Unlock the Joy of Learning! Explore our vast collection of educational toys designed to engage young minds and make learning fun.
+                    Unlock the Joy of Learning! Explore our vast collection of educational toys designed to engage young minds and make learning fun.
                 </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
