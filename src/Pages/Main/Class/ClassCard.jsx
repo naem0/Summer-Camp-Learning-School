@@ -2,15 +2,26 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useClass from "../../../hooks/useClass";
 import Swal from "sweetalert2";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructo from "../../../hooks/useInstructo";
 
 const ClassCard = ({ data }) => {
   const { user } = useContext(AuthContext);
   const [, refetch] = useClass();
   const [disable, setDisabole] = useState(false);
+  const [bg, setBg] = useState(false);
   const { _id, image, price, sportsName, instructorName, instructorEmail, totalSeats, bookSeats } = data;
-
+  const [isAdmin] = useAdmin();
+  const [isInstructo] = useInstructo();
   useEffect(() => {
-    if (totalSeats <= bookSeats) {
+    if (totalSeats <= bookSeats && isAdmin && isInstructo) {
+      setDisabole(true);
+      setBg(true);
+    }
+    if (isAdmin) {
+      setDisabole(true);
+    }
+    if (isInstructo) {
       setDisabole(true);
     }
   }, [totalSeats, bookSeats]);
@@ -53,13 +64,16 @@ const ClassCard = ({ data }) => {
   };
 
   return (
-    <div key={_id} className={`card bg-base-100 shadow-xl ${disable ? "bg-red-500 bg-opacity-10":""}`}>
+    <div key={_id} className={`card bg-base-100 shadow-xl
+     ${bg ? "bg-red-500 bg-opacity-5" : ""} `}>
       <figure><img src={image} alt="Shoes" /></figure>
       <div className="card-body">
         <h2 className="card-title">{sportsName}</h2>
         <p>{price}</p>
         <div className="card-actions justify-end">
-          <button onClick={handleAddStudentMyclass} disabled={disable} className="btn btn-primary">Buy Now</button>
+          <button onClick={handleAddStudentMyclass} 
+          disabled={disable} 
+          className="btn btn-primary">Buy Now</button>
         </div>
       </div>
     </div>

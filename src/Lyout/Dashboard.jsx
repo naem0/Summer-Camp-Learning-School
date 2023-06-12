@@ -26,7 +26,6 @@ const Dashboard = () => {
             <div className="drawer-content flex flex-col items-center justify-center">
                 <Outlet></Outlet>
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">nav</label>
-
             </div>
             <div className="drawer-side p-8">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
